@@ -10,3 +10,4 @@ print(mystr.capitalize())
 print(mystr.upper())
 print(mystr.replace("amit","Shr"))
 print(mystr.zfill(10))
+# changes
