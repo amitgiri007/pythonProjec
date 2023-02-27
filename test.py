@@ -1,15 +1,25 @@
 
 import pandas as pd
-df = pd.DataFrame()
+
+s1 = [['FD', 302, 212121],
+            ['FD', 596, 32434],
+            ['FD', 530, 32342],
+            ['FD', 612, 21233],
+            ['PT', 5, 1233],
+            ['PT', 14, 100],
+            ['PT', 43, 1430],
+            ['PT', 0O4, 213],
+      ['WT', 5, 1233],
+      ['WT', 39, 100],
+      ['WT', 9, 1430],
+      ['WT', 26, 213]
+      ]
+df = pd.DataFrame(s1,
+                  columns=['PYMT_PRO', 'ERROR', 'CNT'])
+
 print(df)
 
-data = ["fd", "pt", 'wt']
-df = pd.DataFrame(data, columns=['Pmt_Processor'])
-print(df)
 
-data = [['fd', 30], ['pt', 15], ['wt', 14]]
-df = pd.DataFrame(data, columns=['Name', 'Age'])
-df
 
 # Payment Processor	Error Node	Count
 # Firstdata	302	21323
