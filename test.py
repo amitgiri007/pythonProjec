@@ -19,22 +19,20 @@ df = pd.DataFrame(s1,
 
 print(df)
 
+import holoviews as hv
+from holoviews import opts, dim
+import holoviews.plotting.bokeh
+hv.extension('bokeh')
+hv.output(size=200)
 
-
-# Payment Processor	Error Node	Count
-# Firstdata	302	21323
-# Firstdata	596	1232
-# Firstdata	530	2323
-# Firstdata	612	21
-# PaymentTech	05	21323
-# PaymentTech	14	1232
-# PaymentTech	43	2323
-# PaymentTech	04	21
-# wpwantif	005	21323
-# wpwantif	039	1232
-# wpwantif	009	2323
-# wpwantif	‘026	21
-
+#add node labels
+nodes = hv.Dataset(pd.DataFrame(df['PYMT_PRO']), 'index')
+#create chord object
+chord = hv.Chord((df, nodes)).select(value=(5, None))
+#customization of chart
+chord.opts(
+           opts.Chord(cmap='Category20', edge_cmap='Category20',                              edge_color=dim('source').str(),
+           labels='nodes', node_color=dim('index').str()))
 
 
 
